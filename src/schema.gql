@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CreateUserOutput {
+  error: String
+  ok: Boolean!
+}
+
+type Post {
+  writtenBy: String!
+  postContent: String!
+}
+
+type Query {
+  getHi: String!
+  getPosts: [Post!]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): CreateUserOutput!
+  createPost(input: CreatePostDto!): Boolean!
+}
+
+input CreateUserInput {
+  email: String!
+  nickname: String!
+  password: String!
+  role: UserRole = Visitor
+}
+
+enum UserRole {
+  Master
+  Visitor
+}
+
+input CreatePostDto {
+  writtenBy: String!
+  postContent: String!
+}
